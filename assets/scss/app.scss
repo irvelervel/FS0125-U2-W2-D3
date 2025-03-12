@@ -1,4 +1,8 @@
 // QUESTO é UN FILE SCSS
+
+// FEATURES DI SCSS
+
+// 1)
 // la sintassi che potremo scrivere qui dentro è 100% retrocompatibile con CSS
 header h1 {
   text-align: center;
@@ -6,4 +10,178 @@ header h1 {
 
 body {
   background-color: #a1a2a1;
+}
+
+// 2) SELETTORI ANNIDATI / NIDIFICATI (NESTED)
+
+// invece di...
+// nav {
+//   display: flex;
+//   flex-direction: column;
+// }
+
+// nav ul {
+//   margin: 0;
+//   padding: 0;
+//   list-style-type: none;
+// }
+
+// nav ul li {
+//   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+//   font-size: 0.85em;
+// }
+
+nav {
+  display: flex;
+  flex-direction: column;
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    li {
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      font-size: 0.85em;
+    }
+  }
+}
+
+// 3) LAVORARE CON LE PSEUDOCLASSI
+// invece di...
+// button.primary {
+//   background-color: red;
+//   color: white;
+// }
+
+// button.primary:hover {
+//   background-color: orange;
+//   color: black;
+// }
+
+// button.secondary {
+//   background-color: purple;
+//   color: white;
+// }
+
+// button.secondary:hover {
+//   background-color: pink;
+//   color: black;
+// }
+
+button.primary {
+  background-color: red;
+  color: white;
+  &:hover {
+    background-color: orange;
+    color: black;
+  }
+}
+// & significa "selettore corrente" (o "this")
+
+button.secondary {
+  background-color: purple;
+  color: white;
+  &:hover {
+    background-color: pink;
+    color: black;
+  }
+}
+// D R Y -> don't repeat yourself!
+
+// nav ul li {
+//   text-decoration: none;
+// }
+
+// nav ul li:nth-of-type(2) {
+//   text-decoration: underline;
+// }
+
+nav {
+  // stili di nav
+  ul {
+    // stili di nav ul
+    li {
+      // stili di nav ul li
+      text-decoration: none;
+      &:nth-of-type(2) {
+        // stili di nav ul li:nth-of-type(2)
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+// la "&" è un modo per riutilizzare il selettore al momento selezionato
+// al fine di non doverlo riscrivere
+
+// 4) PREFISSO COMUNE PER PROPRIETÀ "SIMILI"
+// invece di...
+// main #main-paragraph {
+//   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+//     'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+//   font-weight: lighter;
+//   font-size: 0.8em;
+//   font-style: italic; // corsivo
+// }
+
+main #main-paragraph {
+  font: {
+    family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+      'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    weight: lighter;
+    size: 0.8em;
+    style: italic; // corsivo
+  }
+  border: {
+    color: orange;
+    width: 3px;
+    style: dotted;
+    radius: 30px;
+  }
+}
+
+// 5) VARIABILI
+// Le variabili in SASS servono per memorizzare dei valori.
+// I valori che racchiudiamo nelle variabili possono poi essere utilizzati
+// tramite il nome della variabile.
+
+// COSA possiamo salvare in una variabile SASS? quali sono i "tipi" delle variabili?
+// - valori numerici (0, 1, 100, 50px, 2.5em, etc.)
+// - valori stringa ('2px solid red', '0 auto', 'hello')
+// - colori (blue, orange, rgb(0, 200, 200), #f1f1f1 etc.)
+// - booleani (true, false)
+// - LISTE di valori (10px, 16px, 24px) --> un po' come gli array in JS
+// - MAPPE di coppie chiave:valore --> un po' come gli oggetti in JS
+
+// come si dichiara una variabile? di solito in kebab-case
+$my-margin: 25px;
+
+h1 {
+  margin-top: $my-margin;
+}
+
+main p {
+  margin-left: $my-margin;
+}
+
+$primary: rgb(90, 197, 255);
+$secondary: rgb(73, 73, 73);
+
+// 6) MIXINS
+// un MIXIN è un BLOCCO di regole CSS richiamabili con un singolo nome
+
+@mixin centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+$standard-width: 200px;
+$standard-height: 200px;
+$standard-border: 2px solid $primary;
+
+.box {
+  width: $standard-width;
+  height: $standard-height;
+  border: $standard-border;
+  @include centered; // mi ha portato dentro le tre proprietà sopra!
 }

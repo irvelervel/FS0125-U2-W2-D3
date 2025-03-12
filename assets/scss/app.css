@@ -4,4 +4,71 @@ header h1 {
 
 body {
   background-color: #a1a2a1;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+}
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+nav ul li {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 0.85em;
+}
+
+button.primary {
+  background-color: red;
+  color: white;
+}
+button.primary:hover {
+  background-color: orange;
+  color: black;
+}
+
+button.secondary {
+  background-color: purple;
+  color: white;
+}
+button.secondary:hover {
+  background-color: pink;
+  color: black;
+}
+
+nav ul li {
+  text-decoration: none;
+}
+nav ul li:nth-of-type(2) {
+  text-decoration: underline;
+}
+
+main #main-paragraph {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-weight: lighter;
+  font-size: 0.8em;
+  font-style: italic;
+  border-color: orange;
+  border-width: 3px;
+  border-style: dotted;
+  border-radius: 30px;
+}
+
+h1 {
+  margin-top: 25px;
+}
+
+main p {
+  margin-left: 25px;
+}
+
+.box {
+  width: 200px;
+  height: 200px;
+  border: 2px solid rgb(90, 197, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }/*# sourceMappingURL=app.css.map */
