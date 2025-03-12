@@ -163,6 +163,12 @@ main p {
   margin-left: $my-margin;
 }
 
+ul li {
+  margin-left: $my-margin - 10px;
+  // gli operatori matematici funzionano in SASS
+  // e dopo vediamo anche gli operatori LOGICI == != > < >= <=
+}
+
 $primary: rgb(90, 197, 255);
 $secondary: rgb(73, 73, 73);
 
@@ -184,4 +190,99 @@ $standard-border: 2px solid $primary;
   height: $standard-height;
   border: $standard-border;
   @include centered; // mi ha portato dentro le tre proprietà sopra!
+}
+
+// è possibile "personalizzare" un mixin nella sua invocazione
+@mixin custom-styles($my-background: #fff) {
+  margin-top: 20px;
+  border: $standard-border;
+  background-color: $my-background;
+}
+
+.box-2 {
+  @include centered;
+  width: 150px;
+  height: 150px;
+  @include custom-styles(#f2f2f2);
+}
+
+// 7) INTERPOLAZIONE di stringhe/valori
+
+// const interpolation(param) {
+//  return `font-${param}`
+//  return 'font-' + param
+// }
+
+// interpolation('size') -> 'font-size'
+
+@mixin custom-font($property, $value) {
+  font-#{$property}: $value;
+}
+
+.el-1 {
+  @include custom-font('size', 24px);
+  // font-size: 24px;
+}
+
+.el-2 {
+  @include custom-font('weight', 700);
+  // font-weight: 700;
+}
+
+@mixin custom-margin($property, $value) {
+  margin-#{$property}: $value;
+}
+
+.el-3 {
+  @include custom-margin('top', 10px);
+  // margin-top: 10px;
+}
+
+.el-4 {
+  @include custom-margin('right', 12px);
+  // margin-right: 12px;
+}
+
+// 8) C I C L I
+// in SASS è possibile utilizzare i CICLI per AUTOMATIZZARE la generazione di STILI E CLASSI
+
+$sizes: 12px, 16px, 20px, 24px;
+// ...una specie di array
+
+@each $single-size in $sizes {
+  // sto ciclando la lista $sizes
+  // qui dentro ci entro 4 volte
+  // $single-size alla prima iterazione è 12px, alla seconda 16px etc.
+  .text-#{$single-size} {
+    font-size: $single-size;
+  }
+}
+
+$colors: blue, green, red, purple, orange, cyan;
+
+@each $color in $colors {
+  .bg-#{$color} {
+    background-color: $color;
+  }
+  .text-#{$color} {
+    color: $color;
+  }
+}
+
+// bello! ma avere classi che si chiamano "text-12px" o "text-16px" non è il massimo
+// sarebbe meglio avere tipo "text-sm", "text-lg" etc.
+$sizes-map: (
+  sm: 12px,
+  md: 16px,
+  lg: 20px,
+);
+
+@each $name, $value in $sizes-map {
+  // questo ciclo verrà eseguito 3 volte
+  // alla prima iterazione $name è sm e $value e 12px
+  // alla prima iterazione $name è md e $value e 16px
+  // alla prima iterazione $name è lg e $value e 20px
+  .text-#{$name} {
+    font-size: $value;
+  }
 }

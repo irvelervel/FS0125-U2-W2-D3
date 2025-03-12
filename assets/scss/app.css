@@ -64,6 +64,10 @@ main p {
   margin-left: 25px;
 }
 
+ul li {
+  margin-left: 15px;
+}
+
 .box {
   width: 200px;
   height: 200px;
@@ -71,4 +75,107 @@ main p {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.box-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 150px;
+  margin-top: 20px;
+  border: 2px solid rgb(90, 197, 255);
+  background-color: #f2f2f2;
+}
+
+.el-1 {
+  font-size: 24px;
+}
+
+.el-2 {
+  font-weight: 700;
+}
+
+.el-3 {
+  margin-top: 10px;
+}
+
+.el-4 {
+  margin-right: 12px;
+}
+
+.text-12px {
+  font-size: 12px;
+}
+
+.text-16px {
+  font-size: 16px;
+}
+
+.text-20px {
+  font-size: 20px;
+}
+
+.text-24px {
+  font-size: 24px;
+}
+
+.bg-blue {
+  background-color: blue;
+}
+
+.text-blue {
+  color: blue;
+}
+
+.bg-green {
+  background-color: green;
+}
+
+.text-green {
+  color: green;
+}
+
+.bg-red {
+  background-color: red;
+}
+
+.text-red {
+  color: red;
+}
+
+.bg-purple {
+  background-color: purple;
+}
+
+.text-purple {
+  color: purple;
+}
+
+.bg-orange {
+  background-color: orange;
+}
+
+.text-orange {
+  color: orange;
+}
+
+.bg-cyan {
+  background-color: cyan;
+}
+
+.text-cyan {
+  color: cyan;
+}
+
+.text-sm {
+  font-size: 12px;
+}
+
+.text-md {
+  font-size: 16px;
+}
+
+.text-lg {
+  font-size: 20px;
 }/*# sourceMappingURL=app.css.map */
