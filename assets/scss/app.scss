@@ -286,3 +286,33 @@ $sizes-map: (
     font-size: $value;
   }
 }
+
+// 9) IF / ELSE
+// in SASS è possibile utilizzare delle direttive condizionali al fine di
+// "prendere decisioni" sulla base di determinate condizioni, come l'esistenza
+// o meno di una variabile, la comparazione di un valore etc.
+
+@mixin generate-margin($quantity) {
+  @if $quantity > 10 {
+    margin: #{$quantity}px;
+  } @else {
+    margin: 0;
+  }
+}
+
+.main-margin {
+  @include generate-margin(30);
+  // margin: 30px
+}
+
+.no-margin {
+  @include generate-margin(0);
+  // margin: 0
+}
+
+// 10) PARTIALS
+// SASS ci permette di lavorare su singoli, piccoli files che possono ciascuno occuparsi
+// di una porzione degli stili della nostra app. Questo rende tutta la codebase degli stili
+// più organizzata, mantenibile e ordinata.
+
+// ci spostiamo su style.scss

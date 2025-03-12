@@ -1,0 +1,6 @@
+footer {
+  width: 100%;
+  margin: 1em;
+  animation: moving 2s linear 1 forwards;
+  @include add-color;
+}

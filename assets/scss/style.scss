@@ -1,0 +1,19 @@
+// questo file SCSS non nasce per contenere nessuno stile direttamente
+// quello che andrò a fare qui dentro sarà solamente IMPORTARE altri files ("partials")
+
+@import 'partials/reset';
+@import 'partials/variables';
+@import 'partials/mixins';
+@import 'partials/animations';
+@import 'partials/header';
+@import 'partials/footer';
+
+// notare come nelle direttive import NON c'è l'underscore nei nomi, e manca anche
+// l'estensione
+
+// in questo file vado ad importare i partials descritti nella cartella "partials",
+// in modo da "ricompattare" tutti gli stili spezzettati in un UNICO file, che verrà
+// compilato in CSS
+
+// questa è la tecnica definitiva (utilizzata in prod!) per organizzare ma soprattutto
+// mantenere nel tempo grosse quantità di stili!
