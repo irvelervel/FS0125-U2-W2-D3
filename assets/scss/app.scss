@@ -85,6 +85,15 @@ button.secondary {
     color: black;
   }
 }
+
+button.tertiary {
+  background-color: cyan;
+  color: black;
+  &:hover {
+    background-color: blue;
+    color: white;
+  }
+}
 // D R Y -> don't repeat yourself!
 
 // nav ul li {

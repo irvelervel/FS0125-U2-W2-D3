@@ -38,6 +38,15 @@ button.secondary:hover {
   color: black;
 }
 
+button.tertiary {
+  background-color: cyan;
+  color: black;
+}
+button.tertiary:hover {
+  background-color: blue;
+  color: white;
+}
+
 nav ul li {
   text-decoration: none;
 }

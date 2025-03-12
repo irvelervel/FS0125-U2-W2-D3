@@ -7,3 +7,58 @@
     transform: translate(200px);
   }
 }
+
+// @keyframes fadein1 {
+//   0% {
+//     transform: translate(0, -50px);
+//     opacity: 0;
+//   }
+
+//   100% {
+//     transform: translate(0, 0px);
+//     opacity: 1;
+//   }
+// }
+
+// @keyframes fadein2 {
+//   0% {
+//     transform: translate(50px, 0px);
+//     opacity: 0;
+//   }
+
+//   100% {
+//     transform: translate(0px, 0px);
+//     opacity: 1;
+//   }
+// }
+
+// primo bottone
+
+@mixin buttons-fade($duration, $startX, $startY, $endX, $endY, $delay, $name) {
+  @keyframes #{$name} {
+    0% {
+      transform: translate($startX, $startY);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translate($endX, $endY);
+      opacity: 1;
+    }
+  }
+
+  animation: $name $duration linear $delay 1 forwards;
+}
+
+.primary {
+  // animation: fadein1 2s linear 0s 1 forwards;
+  @include buttons-fade(2s, 0, -50px, 0, 0px, 0s, fadein1);
+}
+.secondary {
+  // animation: fadein2 2s linear 0s 1 forwards;
+  @include buttons-fade(2s, 50px, 0px, 0, 0px, 0s, fadein2);
+}
+
+.tertiary {
+  @include buttons-fade(2s, 0px, 50px, 0, 0px, 0s, fadein3);
+}

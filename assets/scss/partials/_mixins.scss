@@ -2,3 +2,23 @@
   color: $primary;
   background-color: #fff;
 }
+
+// MIXIN GRIGLIA
+@mixin grid($amountPerLine) {
+  display: flex;
+  flex-wrap: wrap;
+  // dovremmo dare a ogni figlio della griglia una width di 100/$amountPerLine%
+  & > div {
+    width: (100% / $amountPerLine) - 1;
+  }
+}
+
+.grid {
+  @include grid(4);
+}
+
+.boxed {
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+}
